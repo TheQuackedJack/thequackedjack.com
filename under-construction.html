@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            text-align: center;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        .textWrapper {
+            margin-bottom: 10px; /* Reduced space between duck and text */
+        }
+        .text {
+            font-size: calc(0.03 * 300px); /* Adjusted multiplier for larger size */
+            white-space: pre;
+            color: #333;
+        }
+        h1 {
+            font-size: 2rem;
+            margin: 10px 0;
+        }
+        p {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 10px;
+        }
+        .contact {
+            font-size: 1rem;
+            color: #333;
+        }
+        .contact a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+        .contact a:hover {
+            text-decoration: underline;
+        }
+        /* Fact container to maintain placement */
+        .fact-container {
+            width: 80%;
+            max-width: 500px;
+            margin-top: 15px;
+            text-align: center;
+        }
+        .fact-box {
+            display: none; /* Hidden initially */
+            font-size: 1.2rem;
+            color: #333;
+            border: 1px solid #ccc;
+            padding: 20px;
+            width: 100%;
+            border-radius: 8px;
+            box-sizing: border-box;
+            height: auto; /* Adjusts to content size */
+            overflow-y: hidden; /* Avoids extra scrollbars */
+        }
+        .button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            color: white;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="textWrapper">
+        <pre class="text">
+                                              ██████                                    
+                                            ██      ██                                  
+                                          ██          ██                                
+                                          ██      ██  ██                                
+                                          ██        ░░░░██                              
+                                            ██      ████                                
+                              ██              ██  ██                                    
+                            ██  ██        ████    ██                                    
+                            ██    ████████          ██                                  
+                            ██                        ██                                
+                              ██              ██      ██                                
+                              ██    ██      ██        ██                                
+                                ██    ████████      ██                                  
+                                ██                  ██                                  
+                                  ████          ████                                    
+                                      ██████████                                        
+        </pre>
+    </div>
+    <h1>Site Under Construction</h1>
+    <p>Something exciting is coming soon! Check back later for updates.</p>
+    <p class="contact">
+        For inquiries, please contact 
+        <a href="mailto:jerry.bard@thequackedjack.com">jerry.bard@thequackedjack.com</a>.
+    </p>
+
+    <!-- Useless Fact Section -->
+    <div class="fact-container">
+        <div class="fact-box" id="factBox"></div>
+    </div>
+    <button class="button" onclick="fetchFact()">Click for a Surprise!</button>
+
+    <script>
+        function fetchFact() {
+            fetch('https://uselessfacts.jsph.pl/random.json?language=en')
+                .then(response => response.json())
+                .then(data => {
+                    const factBox = document.getElementById('factBox');
+                    factBox.textContent = data.text;
+                    factBox.style.display = 'block'; // Show fact box after fetching
+                })
+                .catch(error => {
+                    const factBox = document.getElementById('factBox');
+                    factBox.textContent = "Oops! The surprise is not available right now. Try again later.";
+                    factBox.style.display = 'block'; // Show fact box even if there's an error
+                    console.error('Error fetching fact:', error);
+                });
+        }
+    </script>
+</body>
+</html>
