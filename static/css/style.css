@@ -30,35 +30,31 @@ body {
 header {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Ensure everything in the header is perfectly centered */
-  text-align: center; /* Center-align the text */
+  align-items: center; /* Center-aligns logo and text */
+  gap: 15px;
+  margin: 20px 0;
 }
 
 header h1 {
-  font-size: 2.8em;
+  font-size: clamp(24px, 5vw, 48px);
   font-weight: bold;
   margin: 0;
   text-align: center;
 }
 
 header p {
-  font-size: 1.2em;
+  font-size: clamp(16px, 2.5vw, 24px);
   color: #666;
   margin: 0;
 }
 
-
-
+/* Logo Styles */
 .landing-page-logo {
-  width: 80%; /* Ensure the logo is large and visually prominent */
-  max-width: 600px; /* Allow the logo to scale within a reasonable max size */
-  height: auto; /* Maintain aspect ratio */
-  display: block; /* Prevent any inline behavior from interfering */
-  margin: 0 auto; /* Ensure the logo is horizontally centered */
+  width: 25vw; /* Dynamically adjusts to screen size */
+  height: auto; /* Maintains aspect ratio */
+  min-width: 200px; /* Ensures it doesn’t get too small */
+  max-width: 400px; /* Prevents it from being too large */
 }
-
-
-
 
 /* Button Container */
 .button-container {
@@ -74,7 +70,7 @@ header p {
   align-items: center;
   justify-content: center;
   padding: 12px 20px;
-  font-size: 1em;
+  font-size: clamp(14px, 1.5vw, 18px);
   font-weight: bold;
   color: white;
   background-color: #000;
@@ -86,7 +82,7 @@ header p {
 
 .button i {
   margin-right: 8px;
-  font-size: 1.2em;
+  font-size: clamp(16px, 2vw, 24px);
 }
 
 .button:hover {
@@ -110,7 +106,7 @@ footer {
 }
 
 #social-links a {
-  font-size: 1.5em;
+  font-size: clamp(20px, 2vw, 32px);
   color: #000;
   transition: color 0.3s ease;
 }
@@ -120,27 +116,8 @@ footer {
 }
 
 footer p {
-  font-size: 0.85em;
+  font-size: clamp(12px, 1.2vw, 16px);
   margin-top: 10px;
 }
 
-/* Responsiveness for Smaller Screens */
-@media (max-width: 600px) {
-  header h1 {
-    font-size: 2.2em;
-  }
-
-  header p {
-    font-size: 1em;
-  }
-
-  .button {
-    padding: 10px 16px;
-    font-size: 0.9em;
-  }
-
-  .landing-page-logo {
-    width: 30vw; /* Adjusts for smaller screens */
-    max-width: 500px;
-  }
-}
+/* Optional: Remove Media Queries Since Font Sizes are Dynamic */
