@@ -43,7 +43,7 @@ header h1 {
 }
 
 header p {
-  font-size: clamp(16px, 2.5vw, 24px);
+  font-size: clamp(12px, 2vw, 24px);
   color: #666;
   margin: 0;
 }
